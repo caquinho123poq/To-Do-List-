@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager - Todoist Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+      <button id="sidebar-toggle" class="btn btn--outline">
+        ☰
+      </button>
+
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar">D</div>
+                    <span class="username">Denise</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button id="add-task-btn" class="add-task-btn">➕ Add task</button>
+                </div>
+                
+                <!-- Main Navigation -->
+                <nav class="main-nav">
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">🔍</span>
+                        <span>Search</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">📥</span>
+                        <span>Inbox</span>
+                    </a>
+                    <a href="#" class="nav-item active">
+                        <span class="nav-icon">📅</span>
+                        <span>Today</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">📆</span>
+                        <span>Upcoming</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">🏷️</span>
+                        <span>Filters & Labels</span>
+                    </a>
+                </nav>
+                
+                <!-- My Projects Section -->
+                <div class="project-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">▼</span>
+                        My Projects
+                    </h3>
+                    <div class="project-list">
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Fitness</span>
+                        </a>
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Groceries</span>
+                        </a>
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Appointments</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Section -->
+                <div class="project-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">▼</span>
+                        Team
+                    </h3>
+                    <div class="project-list">
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">New Brand</span>
+                        </a>
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Website Update</span>
+                        </a>
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Product Roadmap</span>
+                        </a>
+                        <a href="#" class="project-item">
+                            <span class="project-icon">#</span>
+                            <span class="project-name">Meeting Agenda</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="content-header">
+                <h1 class="page-title">Today</h1>
+                <div class="header-actions">
+                    <button class="view-toggle">📊 View</button>
+                </div>
+            </div>
+            
+            <div class="content-body">
+                <!-- My Projects Tasks -->
+                <div class="task-section">
+                    <h2 class="task-section-title">My Projects</h2>
+                    <div class="task-list" id="my-projects-tasks">
+                        <!-- Tasks will be dynamically rendered here -->
+                    </div>
+                    
+                </div>
+                
+                <!-- Horizontal line to separate sections -->
+                <hr class="section-separator">
+                
+                <!-- Team Tasks -->
+                <div class="task-section">
+                    <h2 class="task-section-title">Team</h2>
+                    <div class="task-list" id="team-tasks">
+                        <!-- Tasks will be dynamically rendered here -->
+                    </div>
+                    
+                    <!-- Inline Add Task Button -->
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Right Panel (Task Details) -->
+        <div class="right-panel" id="right-panel">
+            <div class="panel-header">
+                <span class="panel-time">8:30</span>
+            </div>
+            
+            <div class="panel-content">
+                <div class="inbox-card">
+                    <h3>Inbox</h3>
+                    <div class="task-detail">
+                        <span class="task-title">Select a task to view details</span>
+                        <div class="task-description">
+                            Choose any task from the list to see more information here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding Tasks -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <span class="close-btn" id="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="task-input" placeholder="Task name">
+                <input type="text" id="task-description" placeholder="Description">
+                <div class="form-row">
+                    <select id="project-select">
+                        <option value="">Select Project</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="appointments">Appointments</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <select id="priority-select">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <input type="date" id="due-date-input">
+                <p id="input-error" class="input-error"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-btn" class="btn-secondary">Cancel</button>
+                <button id="add-task-btn-modal" class="btn-primary">Add task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
