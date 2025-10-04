@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TO-DO LIST</title>
-    <link rel="stylesheet" href="To-Do List .css">
+    <link rel="stylesheet" href="To-Do List.css">
 </head>
 <body>
-    <div class = "container">
-        <h2 id = "Heading">TO-DO LIST &nbsp;<img id = "img" src="https://cdn-icons-png.flaticon.com/512/8832/8832880.png"></h2> 
-        <div class = "input-container">
-            <input type="text" name="task" id="task-input" placeholder = "Add a task...">
-            <button id = "addBtn">Add</button>
+    <div class = "main">
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+        <div class = "container">
+            <h2 id = "Heading">TO-DO LIST &nbsp;<img id = "img" src="https://cdn-icons-png.flaticon.com/512/8832/8832880.png"></h2> 
+            <div class = "input-container">
+                <input type="text" name="task" id="task-input" placeholder = "Add a task...">
+                <input type="date" id="due-date" aria-label="Due date" required>
+                <button id = "addBtn">Add</button>
+            </div>
         </div>
-        <ul id = "task-list"></ul>
+        <div class="container2">
+           <div class="stats">
+               <div class="stat-box" data-filter="all" id="allBox">
+                   <p>All Tasks <span class="count" id="allCount">0</span></p>
+               </div>
+               <div class="stat-box" data-filter="completed" id="completedBox">
+                   <p>Completed Tasks <span class="count" id="completedCount">0</span></p>
+               </div>
+               <div class="stat-box" data-filter="pending" id="pendingBox">
+                   <p>Pending Tasks <span class="count" id="pendingCount">0</span></p>
+               </div>
+           </div>
+           <ul id = "task-list"></ul>
+        </div>
     </div>
-    <script src = "To-Do List .js"></script>
+   
+    <script src = "To-Do List.js"></script>
 </body>
 </html>

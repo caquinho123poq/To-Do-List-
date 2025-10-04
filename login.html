@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — To-Do List</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="card">
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to access your To‑Do list</p>
+
+      <form id="loginForm" class="form" aria-label="Login form">
+        <label>
+          <span class="label">Username</span>
+          <input id="username" type="text" autocomplete="username" required />
+        </label>
+
+        <label>
+          <span class="label">Password</span>
+          <input id="password" type="password" autocomplete="current-password" required />
+        </label>
+
+        <div id="error" class="error" role="alert" aria-live="polite" hidden></div>
+
+        <div class="actions">
+          <button id="loginBtn" type="submit">Sign in</button>
+        </div>
+      </form>
+
+      <p class="small muted">This demo accepts any non-empty username and password.</p>
+      <p class="small"><a href="To-Do List.html">Skip to To-Do List</a></p>
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>
