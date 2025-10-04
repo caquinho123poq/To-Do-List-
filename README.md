@@ -1,5 +1,3 @@
-# 📝 To-Do List App
-
 This repository contains a simple, client-side To‑Do List web app with login, deadlines, and task management features. It's built with plain HTML, CSS, and JavaScript and stores data in the browser's localStorage.
 
 ## Quick features
