@@ -18,7 +18,6 @@ Welcome to the **To-Do List App**! This application is designed to help you mana
 ## Features
 
 - **Task Management**: Add, edit, and delete tasks with ease.
-- **Priority Badge**:Assigg a priority badge to each task based on their priority.
 - **Organized Layout**: The app uses CSS Flexbox for a responsive design.
 - **User-Friendly Interface**: Simple and clean UI for easy navigation.
 - **Real-Time Updates**: Changes reflect immediately without needing a page refresh.
