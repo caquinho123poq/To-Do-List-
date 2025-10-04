@@ -1,0 +1,95 @@
+body {
+    font-family :'Times New Roman', Times, serif;
+    height: 100vh; /* Sets the height to the 100% viewport height */
+    margin: 0;
+    background-image: url("https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures that image covers the entire viewport. */ 
+    background-position: center; /* Centers the background image. */
+}
+
+h2 {
+    color: saddlebrown;
+    padding-top: 20px; /* Adds 20px of space inside the top of the h2 element, */
+    margin-top: 10px; /* Adds 10px of space outside the top of the h2 element. */
+    padding-left: 3px; /*Adds 3px of space inside the left of the h2 element. */
+    text-shadow: 10px 4px 5px #d2b48c;
+}
+
+img {
+    padding: 5px; /* Adds padding around the image. */
+    width: 20px; /* Sets the width of the image. */
+}
+
+.container {
+    position: absolute; /* Positions the container absolutely within its first positioned ancestor. */
+    left: 10px; /* Positions the container 10px from the left */
+    top: 40px; /* Positions the container 40px from the top. */
+    padding-left: 20px; /* Adds 20px of space inside the left of the container. */
+    margin-bottom: 20px;/* Adds 20px of space outside the bottom of the continer. */
+    margin-left: 10px; /* Adds 10px of space outside the left of the container. */
+    border-radius: 5px; /* Rounds the corner of the container. */
+    width: 80%;  /* Sets the width to 80% of the parent element. */
+    max-width: 570px; 
+    box-shadow: 0 4px 8px rgba(0 , 0 , 0 , 0.1); /* 0 horizontal offset , 0 vertical offset , 10% of opacity and gives the shadow to look effective. */
+    border: 2px solid black; 
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 20px; /* Adds 20px of space outside the bottom of the input container. */
+    margin-right: 5px; /* Adds 5px of space outside the right of the input */
+    padding-right: 5px; /* Adds 5px of space inside the right of the input container. */
+}
+
+.input-container input {
+    flex : 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;  /* Rounds all the left corners , i.e left top & bottom. */
+    outline: none; /* Removes the default outline on focus. */
+}
+
+.input-container button {
+    padding: 10px 20px; /* Adds padding inside the button. */
+    border: none; 
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 0 5px 5px 0; /* Rounds all the right corner , i.e right top & bottom. */
+}
+
+.input-container button:hover {
+    background-color: #ff4c4c /* Changes the background color on hover. */
+}
+
+#task-list {
+    list-style: none; /* Removes the default list styling. */
+    padding: 0; 
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between; /* Distribute space between children. */
+    align-items: center; /* Align items vertically in the center. */
+    padding: 10px; /* Adds padding inside the task item. */
+    margin-bottom: 10px; /* Adds 10px of space outside the bottom. */
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.task-item.completed {
+    text-decoration :line-through; /* Strikes through the text. */
+    color: #aaa; 
+}
+
+.delete-btn {
+    background: burlywood;
+    color: #fff;
+    border: none;
+    padding: 5px 10px; /* Adds padding between and inside the button. */
+    border-radius: 4px; /* Rounds the corner. */
+    cursor: pointer; /* Changes the cursor to the pointer when hovered. */
+}
+
