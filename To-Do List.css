@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive&display=swap');
 body {
-    font-family :'Times New Roman', Times, serif;
+    font-family: 'Edu NSW ACT Cursive', cursive, 'Times New Roman', Times, serif;
     height: 100vh; /* Sets the height to the 100% viewport height */
     margin: 0;
     background-image: url("https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg");
@@ -17,23 +18,38 @@ h2 {
 }
 
 img {
+
     padding: 5px; /* Adds padding around the image. */
-    width: 20px; /* Sets the width of the image. */
+    width: 30px; /* Sets the width of the image. */
 }
 
-.container {
-    position: absolute; /* Positions the container absolutely within its first positioned ancestor. */
-    left: 10px; /* Positions the container 10px from the left */
-    top: 40px; /* Positions the container 40px from the top. */
-    padding-left: 20px; /* Adds 20px of space inside the left of the container. */
-    margin-bottom: 20px;/* Adds 20px of space outside the bottom of the continer. */
-    margin-left: 10px; /* Adds 10px of space outside the left of the container. */
-    border-radius: 5px; /* Rounds the corner of the container. */
-    width: 80%;  /* Sets the width to 80% of the parent element. */
-    max-width: 570px; 
-    box-shadow: 0 4px 8px rgba(0 , 0 , 0 , 0.1); /* 0 horizontal offset , 0 vertical offset , 10% of opacity and gives the shadow to look effective. */
-    border: 2px solid black; 
+.container, .container2 {
+    /* Use normal document flow so containers stack vertically */
+    position: static; /* default - flow layout */
+    padding: 16px 20px; /* internal spacing */
+    margin: 18px auto; /* vertical spacing and center horizontally */
+    border-radius: 5px;
+    width: 90%;
+    max-width: 570px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid black;
+    background: rgba(255,255,255,0.9);
 }
+
+.logout-btn {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    z-index: 60;
+}
+.logout-btn:hover { background: rgba(0,0,0,0.85); }
 
 .input-container {
     display: flex;
@@ -42,12 +58,28 @@ img {
     padding-right: 5px; /* Adds 5px of space inside the right of the input container. */
 }
 
-.input-container input {
-    flex : 1;
+.input-container input[type="text"] {
+    flex: 1 1 auto; /* only text input expands */
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;  /* Rounds all the left corners , i.e left top & bottom. */
-    outline: none; /* Removes the default outline on focus. */
+    border-radius: 5px 0 0 5px;  /* left rounded */
+    outline: none;
+    font-family: inherit; /* ensure input uses the site font */
+}
+
+/* due date input stays compact */
+#due-date {
+    flex: 0 0 140px; /* fixed-ish width */
+    width: 140px;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 0; /* square between text and button */
+    margin-left: 8px;
+    background: #fff;
+}
+
+@media (max-width:520px) {
+    #due-date { flex: 0 0 110px; width: 110px; }
 }
 
 .input-container button {
@@ -56,6 +88,7 @@ img {
     background-color: #ff6b6b;
     color: white;
     border-radius: 0 5px 5px 0; /* Rounds all the right corner , i.e right top & bottom. */
+    font-family: inherit; /* ensure buttons use the site font */
 }
 
 .input-container button:hover {
@@ -70,14 +103,31 @@ img {
 
 .task-item {
     display: flex;
-    justify-content: space-between; /* Distribute space between children. */
     align-items: center; /* Align items vertically in the center. */
+    gap: 12px; /* space between checkbox, text and buttons */
     padding: 10px; /* Adds padding inside the task item. */
     margin-bottom: 10px; /* Adds 10px of space outside the bottom. */
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+.task-text {
+    flex: 1 1 auto; /* take remaining space so buttons move to the right */
+    word-break: break-word;
+}
+
+.due-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #e6f4ea;
+    color: #065f46;
+    border: 1px solid #c7eed8;
+    margin-left: 8px;
+}
+.task-item.overdue { border-color: #fca5a5; background: #fff5f5 }
+.task-item.overdue .due-badge { background: #fee2e2; color: #991b1b; border-color: #fecaca }
 
 .task-item.completed {
     text-decoration :line-through; /* Strikes through the text. */
@@ -91,5 +141,115 @@ img {
     padding: 5px 10px; /* Adds padding between and inside the button. */
     border-radius: 4px; /* Rounds the corner. */
     cursor: pointer; /* Changes the cursor to the pointer when hovered. */
+    font-family: inherit; /* use site Google font */
+}
+
+.edit-btn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* inline edit input and buttons inside a task */
+.task-item input[type="text"] {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    flex: 1 1 auto;
+}
+.task-item button {
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* Inline edit Save / Cancel buttons */
+.task-item .save-btn {
+    background: #2563eb; /* blue save */
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-left: 8px;
+}
+.task-item .save-btn:hover { background: #184fc2; }
+
+.task-item .cancel-btn {
+    background: #f3f4f6; /* light gray */
+    color: #111;
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-left: 6px;
+}
+.task-item .cancel-btn:hover { background: #e9eef8; }
+
+/* Stats boxes above the task list */
+.stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.stat-box {
+    flex: 1 1 22%; /* smaller base width so boxes are narrower */
+    min-width: 100px; /* allow tighter wrapping */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px; /* slightly reduced padding */
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.stat-box p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Checkbox circle style inside each task */
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+}
+.task-checkbox.checked {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+.task-checkbox::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(40deg) scale(0);
+    transition: transform 0.12s ease;
+}
+.task-checkbox.checked::after {
+    transform: rotate(40deg) scale(1);
+}
+
+/* active stat box state */
+.stat-box.active {
+    border-color: #4caf50;
+    box-shadow: 0 4px 10px rgba(76,175,80,0.12);
 }
 

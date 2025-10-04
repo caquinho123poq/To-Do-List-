@@ -1,98 +1,49 @@
 # 📝 To-Do List App
 
-![To-Do List App](https://img.shields.io/badge/To--Do%20List%20App-Project-blue)
+This repository contains a simple, client-side To‑Do List web app with login, deadlines, and task management features. It's built with plain HTML, CSS, and JavaScript and stores data in the browser's localStorage.
 
-Welcome to the **To-Do List App**! This application is designed to help you manage your tasks efficiently throughout the day. Whether you're juggling submissions, appointments, or daily chores, this app aims to streamline your workflow.
+## Quick features
+- Login page (demo — accepts any non-empty username/password).
+- Add tasks with a required due date.
+- Checkbox-style completion toggle (click the round checkbox).
+- Inline edit (Edit → input + Save/Cancel). Empty edits can optionally delete the task.
+- Delete individual tasks (Delete button).
+- Tasks show a due-date badge and overdue tasks are highlighted.
+- Filters for All / Completed / Pending via the stat boxes with live counts.
+- Persistent storage via `localStorage` so tasks persist across reloads.
 
-## Table of Contents
+## Files of interest
+- `To-Do List.html` — the main app UI (opens the task list after login).
+- `To-Do List.css` — app styling (background, container, components).
+- `To-Do List.js` — main app logic: add/edit/delete/toggle/filter/persistence.
+- `login.html`, `login.css`, `login.js` — login page and logic (local demo auth).
 
-1. [Features](#features)
-2. [Technologies Used](#technologies-used)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
-8. [Releases](#releases)
+## Run locally
+1. Clone the repo and open the workspace folder.
+2. Open `login.html` in your browser and sign in (any non-empty credentials will work).
+3. After signing in you'll be redirected to `To-Do List.html`.
 
-## Features
+Or open `To-Do List.html` directly — it will redirect to the login page if you're not signed in.
 
-- **Task Management**: Add, edit, and delete tasks with ease.
-- **Organized Layout**: The app uses CSS Flexbox for a responsive design.
-- **User-Friendly Interface**: Simple and clean UI for easy navigation.
-- **Real-Time Updates**: Changes reflect immediately without needing a page refresh.
-- **Submission Reminders**: Keep track of deadlines effortlessly.
+## Usage notes
+- Adding tasks: type the task, choose a due date (required), then click Add or press Enter.
+- Editing: click Edit to open an inline editor where you can change text and due date; Save or Cancel.
+- Completing: click the circular checkbox to mark complete; completed tasks are counted in the Completed box.
+- Filtering: click the stat boxes (All / Completed / Pending) to filter the list.
+- Logout: click the Logout button at the top-right to sign out.
 
-## Technologies Used
+## Data & behavior
+- Tasks are stored as JSON in `localStorage` under the key `todo_tasks_v1`.
+- Login demo stores a `todo_logged_in` flag in `localStorage`.
 
-This project incorporates several technologies to deliver a smooth experience:
-
-- **HTML5**: For structuring the web pages.
-- **CSS3**: For styling and layout.
-- **CSS Flexbox**: To create a responsive design.
-- **JavaScript**: For interactive elements and logic building.
-- **CRUD Operations**: Create, Read, Update, and Delete functionalities.
-
-## Installation
-
-To get started with the To-Do List App, follow these steps:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/caquinho123poq/To-Do-List-.git
-   ```
-
-2. **Navigate to the project directory**:
-   ```bash
-   cd To-Do-List-
-   ```
-
-3. **Open the `index.html` file** in your browser to view the app.
-
-## Usage
-
-Once you have the app running, you can:
-
-- **Add Tasks**: Type your task in the input field and click the "Add" button.
-- **Edit Tasks**: Click on a task to modify it.
-- **Delete Tasks**: Click the "Delete" button next to any task to remove it.
-- **View All Tasks**: All your tasks will be displayed in a list format.
+## Potential improvements
+- Add server-backed authentication and storage for multi-device sync.
+- Add due-date reminders/notifications.
+- Add sorting (by due date, priority) and drag-to-reorder.
 
 ## Contributing
-
-We welcome contributions! If you would like to contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-3. Make your changes and commit them:
-   ```bash
-   git commit -m "Add some feature"
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/YourFeature
-   ```
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. Feel free to use it for personal or commercial projects.
-
-## Contact
-
-For questions or suggestions, please reach out:
-
-- **GitHub**: [caquinho123poq](https://github.com/caquinho123poq)
-
-## Releases
-
-You can find the latest releases of the To-Do List App [here](https://github.com/caquinho123poq/To-Do-List-/releases). Please download the latest version and execute it to experience all the new features and fixes.
-
-To stay updated, check the "Releases" section regularly.
+Contributions are welcome. Fork the repo, create a branch, and open a pull request with your changes.
 
 ---
 
-Thank you for visiting the To-Do List App repository! We hope this app helps you manage your time effectively. Happy tasking! 🎉
+If you'd like, I can also add a README section showing quick screenshots or commands to run a local static server (e.g., `npx http-server .`).

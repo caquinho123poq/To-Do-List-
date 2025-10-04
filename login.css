@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive&display=swap');
+
+:root {
+	--accent: #2563eb;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Edu NSW ACT Cursive', cursive, 'Times New Roman', Times, serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background-image: url("https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.login-wrap {
+	width: 100%;
+	max-width: 520px;
+}
+
+.card {
+	background: rgba(255, 255, 255, 0.95);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+	border: 2px solid #000;
+}
+
+h1 {
+	margin: 0 0 6px;
+	font-size: 22px;
+}
+
+.muted {
+	color: #6b7280;
+	margin: 0 0 12px;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	align-items: center;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	flex: 1;
+}
+
+input[type=text],
+input[type=password] {
+	padding: 10px;
+	border-radius: 8px;
+	border: 1px solid #e6e9ef;
+	font-size: 14px;
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+button {
+	background: var(--accent);
+	color: #fff;
+	border: 0;
+	padding: 10px 14px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.error {
+	color: #9b1c1c;
+	background: #fff0f0;
+	padding: 8px;
+	border-radius: 6px;
+	border: 1px solid #fecaca;
+}
+
+.small {
+	font-size: 12px;
+	color: #6b7280;
+	margin-top: 10px;
+}
+
+@media (max-width: 520px) {
+	body {
+		padding: 18px;
+	}
+
+	.card {
+		padding: 16px;
+	}
+}
