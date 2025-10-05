@@ -1,4 +1,5 @@
 
+
 This repository contains a simple, client-side To‑Do List web app with login, deadlines, and task management features. It's built with plain HTML, CSS, and JavaScript and stores data in the browser's localStorage.
 
 ## Quick features
@@ -39,4 +40,5 @@ Or open `To-Do List.html` directly — it will redirect to the login page if you
 - Add server-backed authentication and storage for multi-device sync.
 - Add due-date reminders/notifications.
 - Add sorting (by due date, priority) and drag-to-reor
+
 
