@@ -1,3 +1,4 @@
+
 This repository contains a simple, client-side To‑Do List web app with login, deadlines, and task management features. It's built with plain HTML, CSS, and JavaScript and stores data in the browser's localStorage.
 
 ## Quick features
@@ -37,11 +38,5 @@ Or open `To-Do List.html` directly — it will redirect to the login page if you
 ## Potential improvements
 - Add server-backed authentication and storage for multi-device sync.
 - Add due-date reminders/notifications.
-- Add sorting (by due date, priority) and drag-to-reorder.
+- Add sorting (by due date, priority) and drag-to-reor
 
-## Contributing
-Contributions are welcome. Fork the repo, create a branch, and open a pull request with your changes.
-
----
-
-If you'd like, I can also add a README section showing quick screenshots or commands to run a local static server (e.g., `npx http-server .`).
