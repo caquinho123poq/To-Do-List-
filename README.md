@@ -41,4 +41,3 @@ Or open `To-Do List.html` directly — it will redirect to the login page if you
 - Add due-date reminders/notifications.
 - Add sorting (by due date, priority) and drag-to-reor
 
-
