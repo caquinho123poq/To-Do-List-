@@ -22,18 +22,26 @@ img {
 }
 
 .container {
-    position: absolute; /* Positions the container absolutely within its first positioned ancestor. */
-    left: 10px; /* Positions the container 10px from the left */
-    top: 40px; /* Positions the container 40px from the top. */
-    padding-left: 20px; /* Adds 20px of space inside the left of the container. */
-    margin-bottom: 20px;/* Adds 20px of space outside the bottom of the continer. */
-    margin-left: 10px; /* Adds 10px of space outside the left of the container. */
-    border-radius: 5px; /* Rounds the corner of the container. */
-    width: 80%;  /* Sets the width to 80% of the parent element. */
-    max-width: 570px; 
-    box-shadow: 0 4px 8px rgba(0 , 0 , 0 , 0.1); /* 0 horizontal offset , 0 vertical offset , 10% of opacity and gives the shadow to look effective. */
-    border: 2px solid black; 
+    position: absolute; /* keep original positioning */
+    left: 10px; /* same as original */
+    top: 40px; /* same as original */
+    padding: 20px 30px; /* slightly more padding for better look */
+    width: 80%;
+    max-width: 570px;
+
+    /* glass effect */
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    backdrop-filter: blur(10px); /* frosted glass blur */
+    -webkit-backdrop-filter: blur(1px); /* Safari support */
+
+    border-radius: 15px; /* rounder corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle glass border */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+
+    margin-bottom: 20px; /* keep original */
+    margin-left: 10px; /* keep original */
 }
+
 
 .input-container {
     display: flex;
@@ -70,14 +78,16 @@ img {
 
 .task-item {
     display: flex;
-    justify-content: space-between; /* Distribute space between children. */
-    align-items: center; /* Align items vertically in the center. */
-    padding: 10px; /* Adds padding inside the task item. */
-    margin-bottom: 10px; /* Adds 10px of space outside the bottom. */
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background-color: #d5c9b9; /* new background color */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* keeps subtle shadow */
+    transition: all 0.3s ease;
 }
+
 
 .task-item.completed {
     text-decoration :line-through; /* Strikes through the text. */
@@ -85,7 +95,7 @@ img {
 }
 
 .delete-btn {
-    background: burlywood;
+    background: #8b4512;
     color: #fff;
     border: none;
     padding: 5px 10px; /* Adds padding between and inside the button. */
@@ -93,3 +103,14 @@ img {
     cursor: pointer; /* Changes the cursor to the pointer when hovered. */
 }
 
+input:focus {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 5px rgba(255,107,107,0.5);
+}
+button:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+input {
+    background-color: #f5f0e6;
+}
