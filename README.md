@@ -1,8 +1,8 @@
-# 📝 To-Do List App
+# 📝 To-Do-List App
 
 ![To-Do List App](https://img.shields.io/badge/To--Do%20List%20App-Project-blue)
 
-Welcome to the **To-Do List App**! This application is designed to help you manage your tasks efficiently throughout the day. Whether you're juggling submissions, appointments, or daily chores, this app aims to streamline your workflow.
+Welcome to the **To-Do-List App**! This application is designed to help you manage your tasks efficiently throughout the day. Whether you're juggling submissions, appointments, or daily chores, this app aims to streamline your workflow.
 
 ## Table of Contents
 
@@ -35,7 +35,7 @@ This project incorporates several technologies to deliver a smooth experience:
 
 ## Installation
 
-To get started with the To-Do List App, follow these steps:
+To get started with the To-Do-List App, follow these steps:
 
 1. **Clone the repository**:
    ```bash
@@ -89,10 +89,10 @@ For questions or suggestions, please reach out:
 
 ## Releases
 
-You can find the latest releases of the To-Do List App [here](https://github.com/caquinho123poq/To-Do-List-/releases). Please download the latest version and execute it to experience all the new features and fixes.
+You can find the latest releases of the To-Do-List App [here](https://github.com/caquinho123poq/To-Do-List-/releases). Please download the latest version and execute it to experience all the new features and fixes.
 
 To stay updated, check the "Releases" section regularly.
 
 ---
 
-Thank you for visiting the To-Do List App repository! We hope this app helps you manage your time effectively. Happy tasking! 🎉
+Thank you for visiting the To-Do-List App repository! We hope this app helps you manage your time effectively. Happy tasking! 🎉
