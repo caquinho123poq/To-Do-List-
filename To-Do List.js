@@ -1,72 +1,96 @@
-document.addEventListener("DOMContentLoaded" , () => {
-    // Wait until the DOM is fully loaded.
+let taskCount = 0;
+        let isEditing = false;
+        let currentRow = null;
 
-    // Get references to the input field , add button & the task list element.
-    // document.getElementById() gives only the references.
-    const taskInput = document.getElementById("task-input");
-    const addTaskBtn = document.getElementById("addBtn");
-    const taskList = document.getElementById("task-list");
+        function addTask() {
+            const taskText = document.getElementById('taskInput').value.trim();
+            const dueDate = document.getElementById('dueDate').value;
+            const priority = document.getElementById('priority').value;
 
-    // Function to handle adding a new task.
-    function addTask() {
+            if (taskText === '' || dueDate === '') {
+                alert("Please fill in both task and due date.");
+                return;
+            }
 
-        // Retrieve and trim whitespace from the task input value.
-        const taskText = taskInput.value.trim();
+            const currentDate = new Date();
+            const addedTime = currentDate.toLocaleString();
 
-        // If the input field is empty , alert the user & stop function execution.
-        if (taskText === "") {
-            alert("Please add a task!");
-            return; // Exit the function early.
+            const priorityClass = {
+                High: 'priority-high',
+                Medium: 'priority-medium',
+                Low: 'priority-low'
+            }[priority];
+
+            if (isEditing && currentRow) {
+                // Update existing task
+                currentRow.children[1].textContent = taskText;
+                currentRow.children[3].textContent = dueDate;
+                currentRow.children[4].textContent = priority;
+                currentRow.children[4].className = priorityClass;
+
+                // Reset
+                isEditing = false;
+                currentRow = null;
+                document.getElementById('addBtn').textContent = "Add Task";
+            } else {
+                taskCount++;
+                const tbody = document.getElementById('taskBody');
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+          <td>${taskCount}</td>
+          <td>${taskText}</td>
+          <td>${addedTime}</td>
+          <td>${dueDate}</td>
+          <td class="${priorityClass}">${priority}</td>
+          <td>
+            <button class="edit-btn" onclick="editTask(this)">Edit</button>
+            <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+          </td>
+        `;
+
+                tbody.appendChild(row);
+            }
+
+            // Clear input fields
+            document.getElementById('taskInput').value = '';
+            document.getElementById('dueDate').value = '';
+            document.getElementById('priority').value = 'Medium';
+        }
+       // function toggleTheme() {
+       //     document.body.classList.toggle('dark-theme');
+       // }
+
+        function deleteTask(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+
+            // Reorder row numbers
+            const rows = document.querySelectorAll("#taskBody tr");
+            taskCount = 0;
+            rows.forEach((tr, index) => {
+                tr.children[0].textContent = index + 1;
+                taskCount++;
+            });
+
+            // Reset if editing deleted row
+            if (row === currentRow) {
+                isEditing = false;
+                currentRow = null;
+                document.getElementById('addBtn').textContent = "Add Task";
+            }
         }
 
-        // Create a new list item (li) element to represent the task.
-        const taskItem = document.createElement("li");
-        taskItem.className = "task-item";  // Assigned the class name here ,for CSS styling.
+        function editTask(button) {
+            currentRow = button.parentElement.parentElement;
+            const taskText = currentRow.children[1].textContent;
+            const dueDate = currentRow.children[3].textContent;
+            const priority = currentRow.children[4].textContent;
 
-        // Create a span element to hold the task text.
-        const taskContent = document.createElement("span");  // span is used to display task text and style  diffferent from others.
-        taskContent.textContent = taskText; // Set the span's text to the input value.
+            document.getElementById('taskInput').value = taskText;
+            document.getElementById('dueDate').value = dueDate;
+            document.getElementById('priority').value = priority;
 
-        // Create a button element for deleting the task.
-        deleteBtn = document.createElement("delBtn"); // Create the button element.
-        deleteBtn.textContent = "Delete";  // Set the button's text for display , so that one can delete.
-        deleteBtn.className = "delete-btn"; // Assigned a class name for CSS styling.
-
-        // Append the task content & delete button to the list item.
-        taskItem.appendChild(taskContent);
-        taskItem.appendChild(deleteBtn);
-
-        // Append the complete task item to the task list.
-        taskList.appendChild(taskItem);
-
-        // Clear the input field for the next task.
-        taskInput.value = "";
-
-        // Add a click event listener to the task content span.
-        // This toggles a "completed" class & alerts the user when the task is clicked.
-        taskContent.addEventListener("click" , () => {
-            taskItem.classList.toggle("completed");  // Togggle "completed" class for the task item.
-            alert("You completed your task , Well Done!"); // Congratulate the user for completing the task.
-        });
-
-
-        // Add a click event listener to the delete button.
-        // This removes a task item from the task list when the button is clicked.
-        deleteBtn.addEventListener("click" , () => {
-            taskList.removeChild(taskItem); // Remove the task item from the DOM.
-        });
-}
-
-// Add a click event listener to the "addTask()" buttton.
-// This will call the addTask function when the button is clicked.
-addTaskBtn.addEventListener("click" , addTask);
-
-
-// Add a keypress event listener to the input field.
-// This will call the addTask function when the "Enter" key is clicked.
-taskInput.addEventListener("keypress" , (event) => {
-    if (event.key === "Enter") {
-        addTask();  // Call the addTask() function when the "Enter" key is clicked.
-    }
-});
-});
+            document.getElementById('addBtn').textContent = "Update Task";
+            isEditing = true;
+        }

@@ -1,95 +1,128 @@
-body {
-    font-family :'Times New Roman', Times, serif;
-    height: 100vh; /* Sets the height to the 100% viewport height */
-    margin: 0;
-    background-image: url("https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg");
-    background-repeat: no-repeat;
-    background-size: cover; /* Ensures that image covers the entire viewport. */ 
-    background-position: center; /* Centers the background image. */
-}
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 591px
+        }
 
-h2 {
-    color: saddlebrown;
-    padding-top: 20px; /* Adds 20px of space inside the top of the h2 element, */
-    margin-top: 10px; /* Adds 10px of space outside the top of the h2 element. */
-    padding-left: 3px; /*Adds 3px of space inside the left of the h2 element. */
-    text-shadow: 10px 4px 5px #d2b48c;
-}
 
-img {
-    padding: 5px; /* Adds padding around the image. */
-    width: 20px; /* Sets the width of the image. */
-}
+        h1 {
+            margin-bottom: 20px;
+        }
 
-.container {
-    position: absolute; /* Positions the container absolutely within its first positioned ancestor. */
-    left: 10px; /* Positions the container 10px from the left */
-    top: 40px; /* Positions the container 40px from the top. */
-    padding-left: 20px; /* Adds 20px of space inside the left of the container. */
-    margin-bottom: 20px;/* Adds 20px of space outside the bottom of the continer. */
-    margin-left: 10px; /* Adds 10px of space outside the left of the container. */
-    border-radius: 5px; /* Rounds the corner of the container. */
-    width: 80%;  /* Sets the width to 80% of the parent element. */
-    max-width: 570px; 
-    box-shadow: 0 4px 8px rgba(0 , 0 , 0 , 0.1); /* 0 horizontal offset , 0 vertical offset , 10% of opacity and gives the shadow to look effective. */
-    border: 2px solid black; 
-}
+        .todo-container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 850px;
+        }
 
-.input-container {
-    display: flex;
-    margin-bottom: 20px; /* Adds 20px of space outside the bottom of the input container. */
-    margin-right: 5px; /* Adds 5px of space outside the right of the input */
-    padding-right: 5px; /* Adds 5px of space inside the right of the input container. */
-}
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
 
-.input-container input {
-    flex : 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;  /* Rounds all the left corners , i.e left top & bottom. */
-    outline: none; /* Removes the default outline on focus. */
-}
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 200px;
+        }
 
-.input-container button {
-    padding: 10px 20px; /* Adds padding inside the button. */
-    border: none; 
-    background-color: #ff6b6b;
-    color: white;
-    border-radius: 0 5px 5px 0; /* Rounds all the right corner , i.e right top & bottom. */
-}
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-.input-container button:hover {
-    background-color: #ff4c4c /* Changes the background color on hover. */
-}
+        input[type="text"],
+        input[type="date"],
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-#task-list {
-    list-style: none; /* Removes the default list styling. */
-    padding: 0; 
-    margin: 0;
-}
 
-.task-item {
-    display: flex;
-    justify-content: space-between; /* Distribute space between children. */
-    align-items: center; /* Align items vertically in the center. */
-    padding: 10px; /* Adds padding inside the task item. */
-    margin-bottom: 10px; /* Adds 10px of space outside the bottom. */
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
 
-.task-item.completed {
-    text-decoration :line-through; /* Strikes through the text. */
-    color: #aaa; 
-}
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: fit-content;
+            margin-top: 26px;
+        }
 
-.delete-btn {
-    background: burlywood;
-    color: #fff;
-    border: none;
-    padding: 5px 10px; /* Adds padding between and inside the button. */
-    border-radius: 4px; /* Rounds the corner. */
-    cursor: pointer; /* Changes the cursor to the pointer when hovered. */
-}
+        button:hover {
+            background-color: #218838;
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .delete-btn,
+        .edit-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 2px;
+        }
+
+        .edit-btn {
+            background-color: #007bff;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .priority-high {
+            color: red;
+            font-weight: bold;
+        }
+
+        .priority-medium {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .priority-low {
+            color: green;
+            font-weight: bold;
+        }
