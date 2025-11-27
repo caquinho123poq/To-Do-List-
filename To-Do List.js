@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded" , () => {
     // Wait until the DOM is fully loaded.
 
-    // Get references to the input field , add button & the task list element.
+    // Get references to the input field , add button ,the task list element and priority dropdown.
     // document.getElementById() gives only the references.
+   
     const taskInput = document.getElementById("task-input");
     const addTaskBtn = document.getElementById("addBtn");
     const taskList = document.getElementById("task-list");
+    const prioritySelect=document.getElementById("priority");
+
+
 
     // Function to handle adding a new task.
     function addTask() {
@@ -13,6 +17,8 @@ document.addEventListener("DOMContentLoaded" , () => {
         // Retrieve and trim whitespace from the task input value.
         const taskText = taskInput.value.trim();
 
+        //Retrive priority from the the priority drop down
+        const priorityText=prioritySelect.value;
         // If the input field is empty , alert the user & stop function execution.
         if (taskText === "") {
             alert("Please add a task!");
@@ -32,15 +38,31 @@ document.addEventListener("DOMContentLoaded" , () => {
         deleteBtn.textContent = "Delete";  // Set the button's text for display , so that one can delete.
         deleteBtn.className = "delete-btn"; // Assigned a class name for CSS styling.
 
-        // Append the task content & delete button to the list item.
+        //Create a span element to hold the priority badge with dynamic styling to each priority badge
+        const priorityBagdge=document.createElement("span");//span is used to display the badge.
+        priorityBagdge.textContent=priorityText; //Set the span's text (priority).
+        priorityBagdge.className=priorityText; //Assigned a class for each badge to have different styling based on their className
+
+
+        //create a div element to hold both the delete btn and priority badge
+        const container=document.createElement("div");
+        container.className="btn-badge-container";// Asign a class for styling of the conyainer
+        container.appendChild(priorityBagdge); //append badge in the container
+        container.appendChild(deleteBtn); //append delete btn in container
+        
+
+
+        // Append the task content & container to the list item.
         taskItem.appendChild(taskContent);
-        taskItem.appendChild(deleteBtn);
+        taskItem.appendChild(container);
+       
 
         // Append the complete task item to the task list.
         taskList.appendChild(taskItem);
 
         // Clear the input field for the next task.
         taskInput.value = "";
+        prioritySelect.value="no-priority"
 
         // Add a click event listener to the task content span.
         // This toggles a "completed" class & alerts the user when the task is clicked.
